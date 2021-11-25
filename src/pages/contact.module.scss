@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+}
+
+.container2 {
+    display: flex;
+}
+
+.mail {
+    text-decoration: none;
+    color: #AFABAA;
+}
+
+.mail2 {
+    margin-top: -25px;
+    margin-left: 25px;
+    text-decoration: none;
+    color: #AFABAA;
+}
+
+.image {
+    text-decoration: none;
+    color: #AFABAA;
+}
+
+.LinkText {
+    margin-left: 10px;
+}
+
+.MailText {
+    margin-left: 10px;
+}
+
+.container:hover {
+    color: #42CEBE;
+}
+
+.mail2:hover {
+    color: #908DF2;
+}
+
+.svg, .image {
+    height: 25px;
+    width: 25px;
+}
+
+.imageMail {
+    height: 25px;
+    width: 25px;
+    margin-left: -25px;
+}
+
+.Linkedin {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.Mail {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.Linkedin:hover {
+    color: #0B8CBF;
+}
+
+.title {
+    display: flex;
+}
+
+.blob {
+    margin-top: -40px;
+    margin-left: -290px;
+    z-index: -1;
+}
