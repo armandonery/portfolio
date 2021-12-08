@@ -4,13 +4,58 @@ import * as contactStyles from './contact.module.scss'
 import Head from '../components/head'
 
 import { StaticImage } from "gatsby-plugin-image";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import '../styles/index.scss'
+
+import emailjs from 'emailjs-com'
 
 const ContactPage = () => {
+
+   const {
+     register,
+     handleSubmit,
+     watch,
+     formState: { errors }
+   } = useForm();
+
+  // const onSubmit = (data) => {
+  //   // alert(JSON.stringify(data));
+  //   console.log({ data })
+  // };
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'service_mh9e3xl', 
+      'template_rgx4qq9', 
+      e.target, 
+      'user_zLpZSkMOI19k1ZAhNLtIo').then(res=>{
+        console.log(res);
+        alert('Thank you, I will contact you soon!!')
+        // document.getElementById('success').innerHTML = '<p style="color: red;">Thank you, I will contact you soon!!</p>';
+        // setTimeout(clearResponse(), 5000);
+      }).catch(err=> console.log(err));
+  }
+
+  function clearResponse() {
+    document.getElementById("succcess").innerHTML = ""; //Clears the innerHTML
+  }
+
   return (
     <Layout>
       <Head title="Contact" />
       <section className={contactStyles.title}>
-        <h1>Get in touch!</h1>
+      <StaticImage
+              className={contactStyles.imageMail} 
+              src="../images/mail.png"
+              width={40}
+              height={40}
+              alt="Mail"
+              placeholder="tracedSVG"
+            />
+        <h1 className={contactStyles.title}>Get in touch!</h1>
         <StaticImage
                   className={contactStyles.blob}
                   src="../images/blob.svg"
@@ -20,27 +65,23 @@ const ContactPage = () => {
                   placeholder="tracedSVG" />
       </section>
 
-      <p>Email me:</p>
-      <div className={contactStyles.container}>
-        <a href="mailto:armandogune25@gmail.com" className={contactStyles.mail2}>
-          <div className={contactStyles.Mail}>
-            <StaticImage
-              className={contactStyles.imageMail} 
-              src="../images/mail.png"
-              width={40}
-              height={40}
-              alt="Mail"
-              placeholder="tracedSVG"
-            />
-            <p className={contactStyles.MailText}>armandogune25@gmail.com</p>
-          </div>   
-        </a>
-        
-        {/* <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" className={contactStyles.svg}>
-          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-        </svg> */}        
+      <div className={contactStyles.form}>
+        <form onSubmit={sendEmail} >
+          <div className={contactStyles.mainInfo}>
+            <label className={contactStyles.name}>Name</label>
+            <input id="name" placeholder="Enter your name" name="name" {...register("Name" )} />
+            <label className={contactStyles.email}>Email</label>
+            <input id="email" placeholder="johndoe@example.com" name="email" {...register("Mail" )} />
+          </div>
+          <label className={contactStyles.description}>Description</label>
+          <textarea id="msg" placeholder="write your message here..." name="message" {...register("Message")} />
+          <input className={contactStyles.submit} type="submit" />
+        </form>
       </div>
+
+      <p id="success"></p>
+
+      <hr />
 
       <div>
         <a href="https://www.linkedin.com/in/armandonery34/" target="_blank" rel="noopener noreferrer" className={contactStyles.image}>

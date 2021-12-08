@@ -36,6 +36,9 @@ body.dark {
   .icon {
     color: #fff;
   }
+  .name, .email, .description {
+    color: var(--textTitle);
+}
 }
   article,
   aside,
