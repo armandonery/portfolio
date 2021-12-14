@@ -72,6 +72,11 @@ const ContactPage = () => {
                    />
       </section>
 
+      <p>
+        I'm interested in remote opportunities, especially looking to join a multicultural team, <br />
+        and being involved in scalable projects.
+      </p>
+
       <div className={contactStyles.form}>
         <form onSubmit={handleSubmit(sendEmail)} >
           
@@ -111,7 +116,7 @@ const ContactPage = () => {
               })} />
               {errors?.Message?.type === "required" && <p className={contactStyles.warningMsg}>Please provide a message</p>}
 
-          <input className={contactStyles.submit} type="submit" />
+          <input className={contactStyles.submit} type="submit" value="Send" />
 
         </form>
       </div>

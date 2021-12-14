@@ -18,7 +18,11 @@ const Footer = () => {
     
     <footer className={footerStyles.footer}>
       <div className={footerStyles.container}>
-        <p>© {data.site.siteMetadata.author} 2021</p>
+        <p>
+          © {data.site.siteMetadata.author} 2021 |
+          <img style={{ paddingTop: '5px' }} src="https://cdn.svgporn.com/logos/gatsby.svg" alt="gatsby" height={18} width={18} />
+        </p>
+
         <div>
           
           {/* Github */}
