@@ -126,7 +126,7 @@ const AboutPage = () => {
       <br />
 
       <p>
-        You can also check my blog on <a href="https://nery.hashnode.dev/">hashnode</a>
+        You can also check my blog on <a href="https://nery.hashnode.dev/">hashnode</a> ✍
       </p>
     </Layout>
   )
