@@ -15,33 +15,41 @@ const ContactPage = () => {
    const {
      register,
      handleSubmit,
-     watch,
+     reset,
      formState: { errors }
    } = useForm();
 
-  // const onSubmit = (data) => {
-  //   // alert(JSON.stringify(data));
-  //   console.log({ data })
+   const sendEmail = (formData) => {
+    emailjs
+      .send("service_mh9e3xl", "template_rgx4qq9", formData, "user_zLpZSkMOI19k1ZAhNLtIo")
+      .then(
+        (result) => {
+          alert('thank you i\'ll respond you soon');
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    reset();
+  };
+
+  // const onSubmit = () => {
+  //   sendEmail();
   // };
 
-  function sendEmail(e) {
-    e.preventDefault();
+  // function sendEmail(e) {
+  //   e.preventDefault();
 
-    emailjs.sendForm(
-      'service_mh9e3xl', 
-      'template_rgx4qq9', 
-      e.target, 
-      'user_zLpZSkMOI19k1ZAhNLtIo').then(res=>{
-        console.log(res);
-        alert('Thank you, I will contact you soon!!')
-        // document.getElementById('success').innerHTML = '<p style="color: red;">Thank you, I will contact you soon!!</p>';
-        // setTimeout(clearResponse(), 5000);
-      }).catch(err=> console.log(err));
-  }
-
-  function clearResponse() {
-    document.getElementById("succcess").innerHTML = ""; //Clears the innerHTML
-  }
+  //   emailjs.sendForm(
+  //     'service_mh9e3xl', 
+  //     'template_rgx4qq9', 
+  //     e.target, 
+  //     'user_zLpZSkMOI19k1ZAhNLtIo').then(res=>{
+  //       console.log(res);
+  //       alert('Thank you, I will contact you soon!!')
+  //     }).catch(err=> console.log(err));
+  // }
 
   return (
     <Layout>
@@ -53,8 +61,7 @@ const ContactPage = () => {
               width={40}
               height={40}
               alt="Mail"
-              placeholder="tracedSVG"
-            />
+              />
         <h1 className={contactStyles.title}>Get in touch!</h1>
         <StaticImage
                   className={contactStyles.blob}
@@ -62,24 +69,52 @@ const ContactPage = () => {
                   width={350}
                   height={150}
                   alt="blob"
-                  placeholder="tracedSVG" />
+                   />
       </section>
 
       <div className={contactStyles.form}>
-        <form onSubmit={sendEmail} >
+        <form onSubmit={handleSubmit(sendEmail)} >
+          
           <div className={contactStyles.mainInfo}>
-            <label className={contactStyles.name}>Name</label>
-            <input id="name" placeholder="Enter your name" name="name" {...register("Name" )} />
-            <label className={contactStyles.email}>Email</label>
-            <input id="email" placeholder="johndoe@example.com" name="email" {...register("Mail" )} />
+
+            <div>
+              <label>Name</label>
+              <input className={contactStyles.name} id="name" placeholder="Enter your name" name="name" {...register("Name", {
+              required: true,
+              maxLength: 20,
+              pattern: /^[A-Za-z]+$/i
+              })} />
+                {errors?.Name?.type === "required" && <p className={contactStyles.warningMsg}>Name is required</p>}
+                {errors?.Name?.type === "maxLength" && (
+                  <p className={contactStyles.warningMsg}>Cannot exceed 20 characters</p>
+                )}
+                {errors?.Name?.type === "pattern" && (
+                  <p className={contactStyles.warningMsg}>Alphabetical characters only</p>
+                )}
+            </div>
+
+            <div>
+              <label className={contactStyles.emailLabel}>Email</label>
+              <input className={contactStyles.email} id="email" placeholder="johndoe@example.com" name="email" {...register("Mail", { 
+              required: true,
+              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+              })} />
+                {errors?.Mail?.type === "required" && <p className={contactStyles.warningMsg} style={{ marginLeft: '15px' }}>Mail is required</p>}
+                {errors?.Mail?.type === "pattern" && (
+                  <p className={contactStyles.warningMsg}>Invalid email address</p>
+                )}
+            </div>
+          
           </div>
-          <label className={contactStyles.description}>Description</label>
-          <textarea id="msg" placeholder="write your message here..." name="message" {...register("Message")} />
+          <textarea className={contactStyles.msg} id="msg" placeholder="write your message here..." name="message" {...register("Message", {
+              required: true
+              })} />
+              {errors?.Message?.type === "required" && <p className={contactStyles.warningMsg}>Please provide a message</p>}
+
           <input className={contactStyles.submit} type="submit" />
+
         </form>
       </div>
-
-      <p id="success"></p>
 
       <hr />
 
@@ -92,9 +127,7 @@ const ContactPage = () => {
               width={40}
               height={40}
               alt="Linkedin"
-              placeholder="tracedSVG"
             />
-            {/* <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="linkedin" className={contactStyles.image}></img> */}
             <p className={contactStyles.LinkText}>LinkedIn</p>
           </div>
         </a> 

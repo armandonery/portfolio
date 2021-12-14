@@ -31,7 +31,6 @@ const {languages, changeLanguage} = useI18next();
                         width={55}
                         height={55}
                         alt="logo"
-                        placeholder="tracedSVG"
                     /> 
                     <Trans>
                         {data.site.siteMetadata.title}

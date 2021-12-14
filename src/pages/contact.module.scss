@@ -115,13 +115,26 @@ form {
 
 .main-info {
     display: flex;
-    // justify-content: space-between;
+    justify-content: flex-start;
+    // margin-bottom: 15px;
 }
 
 .name, .email {
-    font-size: 1.4rem;
-    margin-right: 15px;
+    margin-left: 15px;
 }
+
+.email-label {
+    margin-left: 15px;
+}
+
+.warning-msg {
+    color: #bf1650;
+}
+
+.warning-msg::before {
+    // display: inline;
+    content: "⚠ ";
+  }
 
 .email {
     margin-left: 15px;
@@ -131,7 +144,10 @@ form {
     font-size: 1.4rem;
     margin-top: 20px;
     margin-bottom: 10px;
+}
 
+.msg {
+    margin-top: 25px;
 }
 
 textarea {
@@ -149,10 +165,10 @@ textarea {
     background-image: linear-gradient(to right top, #00ffac, #00ecff, #00ccff, #0096ff, #eb12e4);
     margin-top: 15px;
     color: #fff;
-    padding: 5px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    // font-size: 1.15rem;
+    font-size: 1.25rem;
     transition: all .2s ease-in-out;
 }
 

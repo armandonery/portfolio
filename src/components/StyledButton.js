@@ -5,6 +5,7 @@ export default styled.button`
    margin-top: 15px;
    color: #fff;
    padding: 10px;
+   height: 45px;
    border: none;
    border-radius: 5px;
    font-size: 1.25rem;

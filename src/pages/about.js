@@ -5,17 +5,14 @@ import Head from '../components/head'
 import * as aboutStyles from './about.module.scss'
 
 import { StaticImage } from "gatsby-plugin-image";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
-import { DiFirebase, DiReact, DiTerminal, DiTerminalBadge } from 'react-icons/di';
+import { DiFirebase, DiReact, DiTerminalBadge } from 'react-icons/di';
 
 const AboutPage = () => {
   return (
     <Layout>
       <Head title="About" />
       <h1 className={aboutStyles.aboutMe}>
-        <Trans>
           About me
-        </Trans>
         <StaticImage 
           className={aboutStyles.icon}
           src="../images/glasses.png"
@@ -27,7 +24,7 @@ const AboutPage = () => {
       <p>
         My name is Armando, I am a front end developer passionate about the
         design and creation of web sites and applications familiar with multiple
-        parts of today's web technology stack.
+        parts of todays web technology stack.
       </p> 
       <p>
         Constantly motivated and learning of current web development tools. 
@@ -128,12 +125,9 @@ const AboutPage = () => {
       <br />
       <br />
 
-      <h2>Cloud</h2>
       <p>
-        I am so interested in taking a path that involves a cloud architecture including AWS, Azure or GCP.
-        That's why I´m currently interested in getting certified in these technologies.
+        You can also check my blog on <a href="https://nery.hashnode.dev/">hashnode</a>
       </p>
-
     </Layout>
   )
 }
