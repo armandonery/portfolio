@@ -28,7 +28,7 @@ const IndexPage = () => {
         </p> 
       </div>
   
-      <img src={codderGIF} alt="Coder" />
+      <img src={codderGIF} alt="Coder" height={500} width={700} />
 
       <p>
         I really love to build webistes and web apps, contact me <Link to="/contact">here</Link>
