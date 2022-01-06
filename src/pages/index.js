@@ -15,10 +15,10 @@ const IndexPage = () => {
       <Head title="Home" />
       
       <h1>
-        <p>Hey there <span style={{ fontFamily: 'Segoe UI Emoji' }}>👋</span> my name is Armando</p>
+        <p>Hey there <span style={{ fontWeight: 'initial' }}>👋</span> my name is Armando</p>
       </h1>
       <h2>
-        <p>I am a web dev <span style={{ fontFamily: 'Segoe UI Emoji' }}> 👨‍💻</span></p>
+        <p>I am a web dev <span style={{ fontWeight: 'initial' }}> 👨‍💻</span></p>
       </h2>
 
       <div style={{ display: 'flex', flexDirection: 'row' }}>
