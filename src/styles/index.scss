@@ -1,5 +1,29 @@
 /* Reset provided by https://github.com/gatsbyjs/gatsby-starter-blog via MIT license */
 
+.parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+  .box {
+    display: grid;
+    place-items: left;
+    // background: #F3F4F6;
+    padding: 20px;
+    height: 420px;
+    border-radius: 5px;}
+  
+.rImage {
+  filter: grayscale(80%);
+}
+
+.rImage:hover {
+  filter: none;
+}
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;

@@ -23,22 +23,27 @@ const {languages, changeLanguage} = useI18next();
 
     return (
         <header className={headerStyles.header}>
-            <h1 className="h1Title">
-                <Link className={headerStyles.title} to="/">
-                    <StaticImage 
-                        className={headerStyles.logo}
-                        src="../images/coffee.png"
-                        width={55}
-                        height={55}
-                        alt="logo"
-                    /> 
-                    <Trans>
-                        {data.site.siteMetadata.title}
-                    </Trans>
-                </Link>
-            </h1>
-            <nav>
+            
+            <nav className={headerStyles.nav}>
+
+                <div>
+                    <Link className={headerStyles.title} to="/">
+                        {/* <StaticImage 
+                                className={headerStyles.logo}
+                                src="../images/coffee.png"
+                                width={45}
+                                height={25}
+                                alt="logo"
+                        />  */}
+                        <h1>
+                            {data.site.siteMetadata.title}
+                        </h1>
+                    </Link>
+                </div>
+
+                <div>
                 <ul className={headerStyles.navList}> 
+                    
                     <li>
                         <Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/"><Trans>Home</Trans></Link>
                     </li>
@@ -91,6 +96,8 @@ const {languages, changeLanguage} = useI18next();
                     </ul> */}
                                 
                 </ul>
+                </div>
+                
             </nav>
         </header>
     )

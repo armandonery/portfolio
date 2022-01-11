@@ -75,11 +75,50 @@
     display: flex;
 }
 
+.ul {
+    display: flex;
+}
+
+.des2 {
+    margin-left: 15px;
+}
+
+.ul li {
+    list-style-type: none;
+    margin-right: 25px;
+    letter-spacing: 0.2rem;
+    font-size: 15px;
+    background-color: #AEFEFF;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
 .external {
     margin: 5px;
 }
 
 .demo {
-    color: #fff;
+    color: #000;
     display: flex;
 }
+
+.projects {
+    display: grid;
+    height: 200px;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.box {
+    display: grid;
+    place-items: center;
+    background: lightpink;
+}
+
+.des {
+   background-color: #112240;
+   width: 100%;
+   padding: 20px;
+   text-align: center; 
+}
+

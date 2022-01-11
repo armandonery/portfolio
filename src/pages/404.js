@@ -30,9 +30,10 @@ const NotFoundPage = () => {
         </div>
         <StaticImage
           src="../images/404.svg"
-          width={900}
-          height={900}
-          alt="404 image" />
+          width={500}
+          height={500}
+          alt="404 image"
+         />
       </div>
     </Layout>
   )

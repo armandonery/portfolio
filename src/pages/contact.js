@@ -63,19 +63,19 @@ const ContactPage = () => {
               alt="Mail"
               />
         <h1 className={contactStyles.title}>Get in touch!</h1>
-        <StaticImage
+        {/* <StaticImage
                   className={contactStyles.blob}
                   src="../images/blob.svg"
                   width={350}
                   height={150}
                   alt="blob"
-                   />
+                   /> */}
       </section>
 
-      <p>
+      {/* <p>
         I'm interested in remote opportunities, especially looking to join a multicultural team, <br />
         and being involved in scalable projects.
-      </p>
+      </p> */}
 
       <div className={contactStyles.form}>
         <form onSubmit={handleSubmit(sendEmail)} >

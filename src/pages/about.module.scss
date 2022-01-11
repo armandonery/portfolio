@@ -9,7 +9,84 @@
 .img {
     margin-right: 20px;
     justify-content: center;
+    transition: transform .2s;
 }
+
+.img:hover {
+    transform: scale(1.2);
+}
+
+.gift {
+    filter: grayscale(40%);
+}
+
+.gift:hover {
+    filter: none;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin: 50px;
+}
+
+.skills2 {
+    background-image: url('../images/bridge.jpg');
+    background-repeat: no-repeat;
+    height: 500px;
+    background-position-y: top;
+    padding-top: 30px;
+    border-radius: 15px;
+}
+
+.box {
+    display: grid;
+    place-items: center;
+    background: #F3F4F6;
+    padding: 20px;
+    border-radius: 5px;
+    transition: transform .2s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.welcome {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+}
+
+.welcome-box {
+    display: grid;
+    place-items: left;
+    // background: #F3F4F6;
+    height: 505px;
+    padding: 15px;
+}
+
+.parentHobbies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    }
+
+    .phBox {
+        display: grid;
+        place-items: center;
+        background: #F3F4F6;
+        height: 185px;
+        padding: 15px;
+        border-radius: 5px;
+    }
 
 .aboutMe {
     color: #575978;

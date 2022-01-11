@@ -27,12 +27,19 @@ body.dark {
 
 .title {
     color: #000;
-    font-size: 3rem;
+    font-size: 1rem;
     text-decoration: none;
+    display: flex;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-list {
     display: flex;
+    justify-content: end;
     list-style-type: none;
     margin: 0;
 }
